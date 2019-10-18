@@ -6,6 +6,8 @@ Gereciamento  de Bibliotecas: MAVEN
 
 Banco de dados: POSTGRESQL e MYSQL 
 
+Implementação de DAO Generic
+
 Hospedagem: HEROKU
 
 # http://sistema-veiculos.herokuapp.com
