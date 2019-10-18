@@ -7,6 +7,12 @@
              xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <ui:define name="corpo">
+
+        <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+        <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+            <p:graphicImage value="images/ajax-loader.gif" />
+        </p:dialog>
+        
         <h:form>
             <p:fieldset legend="Carros">
                 <p:messages/>

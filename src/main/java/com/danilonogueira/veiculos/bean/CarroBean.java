@@ -52,7 +52,7 @@ public class CarroBean {
     public void salvar() {
         if (this.validaCarro(this.carro)) {
             if (this.carroDAO.incluir(this.carro)) {
-                adicionarMensagem(carro.getModelo()+" "+carro.getFabricante()+" salvo com sucesso!", FacesMessage.SEVERITY_INFO);
+                adicionarMensagem(carro.getFabricante()+" "+carro.getModelo()+" salvo com sucesso!", FacesMessage.SEVERITY_INFO);
                 mudarBusca();
             } else {
                 adicionarMensagem("Não foi possível incluir o veículo, tente novamente!", FacesMessage.SEVERITY_ERROR);

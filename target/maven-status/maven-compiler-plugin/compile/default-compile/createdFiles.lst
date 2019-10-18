@@ -1,4 +1,8 @@
+com/danilonogueira/veiculos/entity/Moto.class
+com/danilonogueira/veiculos/bean/MotoBean.class
 com/danilonogueira/veiculos/entity/Carro.class
-com/danilonogueira/veiculos/util/ConnectionFactory.class
+com/danilonogueira/veiculos/dao/GenericDAO.class
 com/danilonogueira/veiculos/dao/CarroDAO.class
+com/danilonogueira/veiculos/dao/MotoDAO.class
 com/danilonogueira/veiculos/bean/CarroBean.class
+com/danilonogueira/veiculos/util/ConnectionFactory.class

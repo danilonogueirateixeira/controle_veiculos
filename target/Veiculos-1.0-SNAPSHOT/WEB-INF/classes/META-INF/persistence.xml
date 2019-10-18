@@ -10,7 +10,7 @@
     <persistence-unit name="carro-UP">
 	
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <class>com.danilonogueira.veiculos.entity.Carro</class>
+        <!-- <class>com.danilonogueira.veiculos.entity.Carro</class> -->
 		
         <properties>
             <!-- DADOS CONEXAO 
@@ -23,7 +23,14 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-184-73-232-93.compute-1.amazonaws.com:5432/d1663tk7lk7op2" ></property>
             <property name="javax.persistence.jdbc.user" value="uihqppkjwrhtxe" />
             <property name="javax.persistence.jdbc.password" value="38f9eba829e8aaff025357aaf79e4b4ac6137de3fca920d3d0f516fac6210b1e" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /> 
+            
+            <!--
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres" ></property>
+            <property name="javax.persistence.jdbc.user" value="postgres"/>
+            <property name="javax.persistence.jdbc.password" value="admin" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" /> -->
             
             <!-- CONFIGURACAO -->
             <property name="hbm2ddl.auto" value="update" />

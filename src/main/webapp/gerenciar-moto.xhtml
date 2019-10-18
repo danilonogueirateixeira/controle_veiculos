@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:p="http://primefaces.org/ui"
+             template="template.xhtml"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="corpo">
+        
+        <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+        <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+            <p:graphicImage value="images/ajax-loader.gif" />
+        </p:dialog>
+        
+        <h:form>
+            <p:fieldset legend="Motos">
+                <p:messages/>
+
+                <p:toolbar>
+                    <p:toolbarGroup>
+                        <p:commandButton value="Novo" action="#{motoBean.novo()}" update="@form" disabled="#{motoBean.inseri == true}"></p:commandButton>
+                        <p:commandButton value="Salvar" action="#{motoBean.salvar()}" update="@form"  disabled="#{motoBean.busca == true}"></p:commandButton>
+                        <p:commandButton value="Listar" action="#{motoBean.listar()}" update="@form" disabled="#{motoBean.busca == true}"></p:commandButton>
+                    </p:toolbarGroup>
+                </p:toolbar>
+
+                <p:panelGrid columns="2" rendered="#{motoBean.busca == false}">
+                    <p:outputLabel value="Modelo"></p:outputLabel>
+                    <p:inputText value="#{motoBean.moto.modelo}"></p:inputText>
+
+                    <p:outputLabel value="Fabricante"></p:outputLabel>
+                    <p:inputText value="#{motoBean.moto.fabricante}"></p:inputText>
+
+                    <p:outputLabel value="Cor"></p:outputLabel>
+                    <p:inputText value="#{motoBean.moto.cor}"></p:inputText>
+
+                    <p:outputLabel value="Ano"></p:outputLabel>
+                    <p:inputMask mask="9999" value="#{motoBean.moto.ano}"></p:inputMask>                 
+                </p:panelGrid> 
+
+                <p:dataTable value="#{motoBean.motos}" var="moto" rendered="#{motoBean.busca == true}" >
+
+                    <p:column headerText="Modelo">
+                        <h:outputText value="#{moto.modelo}"></h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Fabricante">
+                        <h:outputText value="#{moto.fabricante}"></h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Cor">
+                        <h:outputText value="#{moto.cor}"></h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Ano" >
+                        <h:outputText value="#{moto.ano}"></h:outputText>
+                    </p:column>
+
+                    <p:column style="width: 3%">
+                        <p:commandLink action="#{motoBean.editar(moto)}" update="@form">
+                            <p:graphicImage value="images/editar.png" title="Editar" width="22" height="22" style="border: none"/>
+                        </p:commandLink>
+                    </p:column>
+
+                    <p:column style="width: 3%">
+                        <p:commandLink action="#{motoBean.deletar(moto)}" update="@form">
+                            <p:graphicImage value="images/excluir.png" title="Excluir" width="22" height="22" style="border: none"/>
+                        </p:commandLink>
+                    </p:column>
+
+                </p:dataTable>
+            </p:fieldset>
+        </h:form>
+    </ui:define>
+
+
+</ui:decorate>
+
